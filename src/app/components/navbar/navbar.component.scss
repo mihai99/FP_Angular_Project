@@ -1,0 +1,91 @@
+@import "../../styles/mixin";
+
+.navbar
+{
+    display: flex;
+    justify-content: space-between;
+    background: $main-color;
+    @include respond-to("sm")
+    {
+        flex-direction:column;
+    }
+    .always-on
+    {
+        display: flex;
+        justify-content: space-between;
+        background: $main-color;
+        z-index: 10;
+    }
+    nav{
+        z-index: 1;
+        @include respond-to("sm"){
+        display: none;
+        }
+    }
+    .active{
+        display: block;
+    }
+    .burger
+    {
+        display: none;
+        @include respond-to("sm")
+        {
+            display: block;
+
+        }
+    }
+    .logo
+    {
+        display: flex;
+        align-items: center;
+    }
+    h1{
+        font-family: 'Playfair Display', serif;
+        margin:17px;
+        font-size: 40px;
+        color: $text-color;
+        @include respond-to("lg")
+        {
+            font-size:25px;
+        }
+    }
+    img{
+        height: 75px;
+    }
+    ul{
+        margin: 0;
+        display:flex;
+        flex-direction:row;
+        
+        @include respond-to("sm")
+        {
+            flex-direction: column;
+        }
+        li{
+            color: $text-color;
+            background-color: $main-color;
+            text-align: center;          
+            padding: 28px;
+            
+                  
+            list-style:none;
+            a
+            {
+                font-family: 'Playfair Display', serif;
+                color: $text-color;
+               
+                height: 100%;
+                text-decoration: none;
+                transition: all 200ms linear;           
+            }
+            
+        }
+        li:hover
+            {
+                color: $main-color;
+                background-color: $secondary-color;
+                transition: all 200ms linear;
+            }
+       
+    }
+}

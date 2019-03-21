@@ -1,0 +1,10 @@
+<div  class="content">
+
+<div  (mouseenter)="showUsr();" (mouseleave)="hideUsr()" [ngClass]="[showUsers == true ?  'users active' : 'users']">
+    <app-users (checkboxState)="blockUserPannel($event)"></app-users>
+</div>
+<div [ngClass]="[showUsers == true ?  'router' : 'router full']">
+    <router-outlet></router-outlet>
+</div>
+    
+</div>

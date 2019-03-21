@@ -1,0 +1,47 @@
+$main-color: #333;
+$btn-over: #4b4949;
+$secondary-color: #9c9c9c;
+$text-color: white;
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1350px
+);
+
+
+
+@mixin respond-to($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  
+  // If the breakpoint doesn't exist in the map.
+  } @else {
+
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+.btn{
+            
+  background:$main-color;
+  border-radius:10px;
+  color:$text-color;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn:hover{
+  box-shadow: 2px 5px #888888;
+  background: $btn-over;
+}

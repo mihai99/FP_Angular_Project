@@ -1,0 +1,21 @@
+<div class="navbar">
+  <div class="always-on">
+  <div class="logo">
+      <img src="../../../assets/logo.png">
+      <h1>The buy list</h1>
+  </div>
+  <div class="burger" (mousedown)="switchMenu()"><img src="../../../assets/nav.png"> </div>
+
+</div>
+  <nav [ngClass]="[showMenu == true ?  'active' : '']">
+    <ul>
+      <li [routerLink]="['']">Listele mele</li>
+      <li [routerLink]="['']">Toate listele</li>
+      <li [routerLink]="['']">Liste populare</li>
+      <li [routerLink]="['']">Ultimele liste</li>
+      <li [routerLink]="['/add']">Adauga o lista</li>
+      <li [routerLink]="['']">Log in / Register</li>
+    </ul>
+  </nav>
+ 
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="opt">
+      <span>Select a category</span>
+        <select [(ngModel)]="newList.category">
+          <option value="food">Food List</option>
+          <option value="pc">PC List</option>
+          <option value="gift">Gift List</option>
+        
+        </select>
+      </div>
+      
+      <div class="opt">
+      <span>Name the list:</span>
+        <input type="text"  [(ngModel)]="newList.name">
+       
+    </div> 
+    <div class="opt">
+        <span>Any description that can help you later?:</span>
+          <textarea [(ngModel)]="newList.description" ></textarea>
+     </div> 
+     <div class="opt items-up">
+         <span>Items:</span>
+          <input type="text" [(ngModel)]="newItem" (keyup.enter)="addItem()">
+          <div class="btn addItem" (mousedown)="addItem()">Add item</div>        
+        
+     </div>       
+     <div class="opt items-down" >
+        <div class="item" *ngFor="let item of newList.items" (click)='delete($event.target)'>{{item}}</div>
+    </div> 
+     <div class="opt">
+     <div class="btn addlist">Add List</div>
+      </div>  
+</div>

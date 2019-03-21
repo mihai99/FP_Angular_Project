@@ -1,0 +1,56 @@
+@import "../../styles/mixin";
+.content{
+    width:100%;
+    
+    display: flex;
+    flex-direction: row;
+    
+   
+}
+.users
+{
+    width:16%;
+    height: auto !important;
+    margin-left:-15%;
+    transition: margin 0.2s ease-in;
+    position: relative;
+    
+    @include respond-to("lg")
+    {
+        width:23%;
+        margin-left:-21%
+    }
+    @include respond-to("md")
+    {
+        width:30%;
+        margin-left:-28%
+    }
+    @include respond-to("xs")
+    {
+        display: none;
+    }
+}
+
+.router
+{
+   
+    width:84%;
+    transition: width 0.2s ease-in;
+    @include respond-to("xs")
+    {
+        width:100%;
+     
+    }
+    
+}
+.full
+{
+    width:99%;
+    transition: width 0.2s ease-in;
+}
+.active
+{
+    margin-left:0%;
+    transition: margin 0.2s ease-in;
+   
+}
