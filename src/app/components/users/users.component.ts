@@ -10,6 +10,7 @@ export class UsersComponent implements OnInit {
 
   @Output() checkboxState = new EventEmitter<boolean>();
   checked=true;
+  connectedUsers = ['aaa', 'bbb', 'ccc', 'dddd'];
   constructor() { }
 
   ngOnInit() {

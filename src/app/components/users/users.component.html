@@ -5,9 +5,8 @@
     </div> 
 <ul>
   <li class="self"  >Blaga Mihai</li>
-  <li >user 1</li>
-  <li>user 2</li>
-  <li>user3 </li>
+  <li *ngFor="let user of connectedUsers">{{user}}</li>
+
 
 </ul>
 </div>
