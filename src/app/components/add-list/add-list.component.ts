@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { listDetail } from 'src/app/interfaces/listInterface';
 
 
 @Component({
@@ -14,13 +14,15 @@ import { FormsModule } from '@angular/forms';
 
 
 export class AddListComponent implements OnInit {
-  newList: any = { 
+  newList: listDetail = { 
     id:0,
     description: '',
     name: '',
     category: 'food',
     items: [],
-    likes: 0
+    likes: 0,
+    owner: '',
+    dateAdded: new Date()
 };
 newItem: '';
   constructor() { }

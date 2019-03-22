@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ListsService } from 'src/app/services/lists.service';
+import { TouchSequence } from 'selenium-webdriver';
+import { listDetail } from 'src/app/interfaces/listInterface';
 
 @Component({
   selector: 'app-lists',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lists.component.scss']
 })
 export class ListsComponent implements OnInit {
-
-  constructor() { }
+  foodLists:Array<listDetail>;
+  pcLists:Array<listDetail>;
+  constructor(private lists: ListsService) { }
 
   ngOnInit() {
+  this.getLists();
   }
-
+  getLists(){
+    const lists = this.lists.getLists();
+    this.foodLists = lists.filter(itemList => itemList.category == 'food');
+    this.pcLists = lists.filter(itemList => itemList.category == 'pc');
+  
+    
+    
+  }
 }

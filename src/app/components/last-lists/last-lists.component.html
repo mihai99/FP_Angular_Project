@@ -1,0 +1,24 @@
+
+<div class="list-container">
+    <span>Liste adaugate in ultimele 10 zile</span>
+    <ul>
+      
+        <li *ngFor="let list of Lists">
+        <div class="mainContent">
+          <div class="category">Category: {{list.category}}</div>
+          <div class="title">{{list.name}}</div>
+          <div class="description">{{list.description}}</div>
+          <div class="likes">
+              <img src="../../../assets/like.png">
+              Likes: {{list.likes}}          
+          </div>
+        <ul >
+            <li *ngFor="let item of list.items | slice:0:3">{{i}} {{item}}</li>
+        </ul>
+        </div>
+        <div class="btn">view list</div>
+      </li>
+   
+    </ul>
+    
+  </div>

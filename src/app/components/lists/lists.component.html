@@ -2,40 +2,38 @@
 <div class="list-container">
   <span>Liste pentru mancare</span>
   <ul>
-    <li>
-      <div class="title">dasd</div>
-      <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fuga iste excepturi dolorum quibusdam sit, deserunt sequi incidunt quaerat? Animi perspiciatis quas qui et magnam facilis debitis nesciunt distinctio quibusdam.</div>
-      <div class="likes">
-          <img src="../../../assets/like.png">
-          Likes: 2345
-          
-      </div>
+    
+      <li *ngFor="let list of foodLists">
+      <div class="mainContent">
+        <div class="title">{{list.name}}</div>
+        <div class="description">{{list.description}}</div>
+        <div class="likes">
+            <img src="../../../assets/like.png">
+            Likes: {{list.likes}}          
+        </div>
       <ul >
-        <li class="firstItems">item1</li>
-        <li>item2</li>
-        <li>item3</li>
+          <li *ngFor="let item of list.items | slice:0:3">{{i}} {{item}}</li>
       </ul>
+      </div>
       <div class="btn">view list</div>
     </li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+ 
   </ul>
   <span>Liste pentru pc</span>
   <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <li *ngFor="let list of pcLists">
+      <div class="mainContent">
+        <div class="title">{{list.name}}</div>
+        <div class="description">{{list.description}}</div>
+        <div class="likes">
+            <img src="../../../assets/like.png">
+            Likes: {{list.likes}}          
+        </div>
+      <ul >
+          <li *ngFor="let item of list.items | slice:0:3">{{i}} {{item}}</li>
+      </ul>
+      </div>
+      <div class="btn">view list</div>
+    </li>
   </ul>
 </div>

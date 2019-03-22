@@ -10,6 +10,8 @@ import { ListsComponent } from './components/lists/lists.component';
 import { AddListComponent } from './components/add-list/add-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { PopularListsComponent } from './components/popular-lists/popular-lists.component';
+import { LastListsComponent } from './components/last-lists/last-lists.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     BodyComponent,
     UsersComponent,
     ListsComponent,
-    AddListComponent
+    AddListComponent,
+    PopularListsComponent,
+    LastListsComponent
   ],
   imports: [
     FormsModule,
