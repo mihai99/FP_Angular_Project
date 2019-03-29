@@ -2,23 +2,24 @@
 <div class="list-container">
   <span>Liste populare</span>
   <ul>
-    
-      <li *ngFor="let list of Lists">
+    <ng-container  *ngFor="let list of Lists" >
+      <li *ngIf="list.owner == loggedInUser.username || list.visibility == 'public' ">
+          <img class="cartImg cartImgActive" src="../../../assets/cart.png">
       <div class="mainContent">
         <div class="category">Category: {{list.category}}</div>
         <div class="title">{{list.name}}</div>
-        <div class="description">{{list.description}}</div>
-        <div class="likes">
-            <img src="../../../assets/like.png">
+        <div class="description">{{list.description.slice(0, 500)+(list.description.length>500?'...':'')}}</div>
+        <div [ngClass]="[list.owner == loggedInUser.username ?  'likesSelf' : 'likes']">
+            <img src="../../../assets/like.png" (mousedown)="addLike(list.id)">
             Likes: {{list.likes}}          
         </div>
       <ul >
           <li *ngFor="let item of list.items | slice:0:3">{{i}} {{item}}</li>
       </ul>
       </div>
-      <div class="btn">view list</div>
+      <div class="btn" [routerLink]="['/viewFullList', list.id]">view list</div>
     </li>
- 
+  </ng-container>
   </ul>
   
 </div>

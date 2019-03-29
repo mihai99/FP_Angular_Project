@@ -1,0 +1,27 @@
+
+<div class="list-container">
+  <div class="list-category" *ngFor="let category of allCategories" >
+  <span *ngIf="exists[category]" >Liste pentru {{category}}</span>
+  <ul>
+    
+      <li *ngFor="let list of allLists[category]" >
+          <img class="cartImg" src="../../../assets/cart.png">
+      <div class="mainContent">
+        <div class="title">{{list.name}}</div>
+        <div class="description">{{list.description.slice(0, 500)+(list.description.length>500?'...':'')}}</div>
+        <div class="likesSelf">
+            <img src="../../../assets/like.png" >
+             Likes: {{list.likes}} 
+        </div>
+        
+     <ul >
+          <li *ngFor="let item of list.items | slice:0:3">{{item}} </li>
+      </ul>
+      </div>
+      <div class="btn" [routerLink]="['/viewFullList', list.id]">view list</div>
+    </li>
+ 
+  </ul>
+</div>
+ 
+</div>

@@ -1,7 +1,8 @@
 
 
 export interface listDetail {
-    id:Number,
+    visibility:  String,
+    id: String,
     description: String,
     name: String,
     category: String,

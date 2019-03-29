@@ -3,18 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    span
-    {
-        margin-right:50px;
-        @include respond-to("md")
-        {
-            margin-right:15px;
-        }
-        @include respond-to("xs")
-        {
-            margin-right:5px;
-        }
-    }
+    
     .opt
     {
         margin-top: 20px;
@@ -50,17 +39,26 @@
              margin-left:20px;
            
         }
-        input, textarea
+        .full-width
         {
             border-radius: 5px;
         }
         select{
             width:150px;
         }
-        input{
-            height:20px;
-        }
+        mat-form-field{
+            
+            width:100%;
+            margin-bottom: -20px;
 
+            
+        }
+        .itemAdd{
+            width: calc(100% - 120px);
+            @include respond-to('xs')
+            {width: 100%;}
+        }
+        
        
         
     }     
@@ -92,3 +90,6 @@
             margin:2px;
         }
 }
+mat-form-field .appearance-outline .mat-form-field-outline {
+    color: white;
+  }

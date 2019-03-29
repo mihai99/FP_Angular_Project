@@ -1,10 +1,10 @@
-<div class="users">
-    <div class="block">
+<div class="users" (mouseleave)="showExtension(true)" (mouseenter)="showExtension(false)">
+    <div  [ngClass]="[checked == false && extension==true ?  'block extended' : 'block']"  >
         Block user pannel? 
         <input type="checkbox" (mousedown)="change()" checked>
     </div> 
 <ul>
-  <li class="self"  >Blaga Mihai</li>
+  <li class="self"  >{{currentUser.name}}</li>
   <li *ngFor="let user of connectedUsers">{{user}}</li>
 
 

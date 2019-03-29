@@ -1,0 +1,67 @@
+@import "../../styles/mixin";
+.wrapper
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+    .main{
+        display: flex;
+        word-wrap: break-word;
+        height:auto;
+        overflow: hidden;
+        div{
+           overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 0px;
+            transition: all 0.2s ease-in;
+            span{
+                text-align: center;
+                font-size: 22px;
+                font-weight: bold;
+                padding: 20px;
+            }
+            mat-form-field{
+                padding: 25px 75px;
+                text-align: center;
+                @include respond-to('md')
+                {
+                    padding: 25px;
+                }
+            }
+            .btn{
+                height: 50px;
+                padding: 0px 30px;
+                width:200px;
+            }
+        }
+        .active
+            {
+                width:100%;
+                transition: all 0.2s ease-in;
+            }
+        .deactive{
+            width:0%;
+            transition: all 0.2s ease-in;
+        }
+        .register
+        {
+            mat-form-field{
+                padding:  0px 75px;
+            }
+        }
+    }
+    .btngroup{
+        display: flex;
+        align-self: center;
+        margin-top:50px;
+        .btn{
+            width:200px;
+            height:50px;
+        }
+    }
+   
+}

@@ -1,6 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { listDetail } from 'src/app/interfaces/listInterface';
+import { ListsService } from 'src/app/services/lists.service';
+import { UserService } from 'src/app/services/user.service';
+
+
 
 
 @Component({
@@ -15,30 +19,52 @@ import { listDetail } from 'src/app/interfaces/listInterface';
 
 export class AddListComponent implements OnInit {
   newList: listDetail = { 
-    id:0,
+    id: '',
     description: '',
     name: '',
     category: 'food',
     items: [],
     likes: 0,
     owner: '',
+    visibility: '',
     dateAdded: new Date()
 };
 newItem: '';
-  constructor() { }
+
+  constructor(private listService: ListsService ,
+              private userService: UserService             
+    ) { }
 
   ngOnInit() {
   }
 
  
-  addItem()
+ uploadList()
   {
-   this.newList.items.push(this.newItem);
-    this.newItem='';
+    let upList =  this.newList;
+    upList.owner = this.userService.getUser().username;
+    this.listService.uploadList(upList).subscribe(data => {
+      if(data){
+        alert("lista adaugata cu succes")
+        this.newList = {id: '',description: '',name: '',category: 'food',items: [],likes: 0,owner: this.userService.getUser().username, visibility: '', dateAdded: new Date()}
+      }
+    });
+    return 1;
   }
-  delete(item)
+ 
+  addItem()
+  { 
+    if(this.newItem) { 
+      this.newList.items.push(this.newItem);
+      this.newItem='';
+    }
+  }
+
+  delete(index)
   {
-    this.newList.items = this.newList.items.filter(itemList => itemList !== item.innerHTML);
-    console.log(this.newList);
+  
+    this.newList.items.splice(index, 1);
+   
   }
 }
+

@@ -23,7 +23,7 @@
         display: flex;
         margin-left:30px;
         margin-right:30px;
-        justify-content: space-evenly;
+       // justify-content: space-evenly;
         li{
             width: calc(25% - 20px);
             min-height: 250px;
@@ -33,6 +33,7 @@
             flex-direction: column;
             justify-content: space-between;
             border-radius: 10px;
+            border-top-right-radius: 30px;
             @include respond-to("lg")
             {
                 width:calc(33% - 20px);
@@ -44,6 +45,32 @@
             @include respond-to("sm")
             {
                 width: calc(100% - 20px);
+            }
+            .cartImg{
+                width: 30px;
+                padding: 10px;  
+                padding-bottom: 0px;  
+                margin-left: calc(100% - 55px);        
+                height: 30px;
+                border-radius: 0px;
+             
+                border:0px solid;
+                transition: all 0.2s ease-in;
+            }
+            .cartImg:hover{
+                border:2px solid;
+                border-radius: 30px;
+                transition: all 0.2s ease-in;
+            }
+            .cartImgActive{
+                background: white;
+                border-radius: 30px;
+                border:2px solid;
+            }
+            .cartImgActive:hover{
+                background: none;
+                border-radius: 0px;
+                border:0px solid;
             }
             .title
             {
@@ -67,17 +94,31 @@
                 img{
                     width:50px;
                     margin-right:10px;
-                    border-radius: 25px;
+                    border-radius: 0px;
                     background:none;
-                    transition: background 0.2s ease-in;
+                    transition: all 0.2s ease-in;
                 }
                 img:hover
                 {
                    background:white;
-                 
-                   transition: background 0.2s ease-in;
+                   border-radius: 25px;
+                   transition: all 0.2s ease-in;
                 }
 
+            }
+            .likesSelf{
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                margin: 10px;
+                justify-content: center;
+                img{
+                    width:50px;
+                    margin-right:10px;
+                    border-radius: 25px;
+                    background:none;
+                   
+                }
             }
             ul{
                 display:flex;

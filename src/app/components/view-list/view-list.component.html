@@ -1,0 +1,24 @@
+
+<div class="list-container">
+ 
+
+    
+    
+      <div class="mainContent">
+        <div class="head">{{currentList.owner}}'s list for {{currentList.category}}<div *ngIf="currentList.owner==loggedInUser">, {{currentList.visibility}} list</div> </div>    
+        <div class="title">{{currentList.name}}</div>
+        <div class="description">Description: {{currentList.description}}</div>
+         <div [ngClass]="[currentList.owner == loggedInUser.username ?  'likesSelf' : 'likes']">
+           <img src="../../../assets/like.png" (mousedown)="addLike(currentList.id)">
+            Likes: {{currentList.likes}}          
+        </div>
+      <ul >
+          <li *ngFor="let item of currentList.items"> {{item}}</li>
+      </ul>
+      <div class="modifyBut" *ngIf="currentList.owner == loggedInUser" [routerLink]="['/editList', currentList.id]">Modify List</div>
+    </div>
+      
+      
+
+  
+</div>

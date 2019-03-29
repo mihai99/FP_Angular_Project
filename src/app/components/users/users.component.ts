@@ -1,5 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { CompileShallowModuleMetadata } from '@angular/compiler';
+import { extend } from 'webdriver-js-extender';
+import { UserService } from 'src/app/services/user.service';
+import { userDetail } from 'src/app/interfaces/user';
+import { interval } from 'rxjs';
+
 
 @Component({
   selector: 'app-users',
@@ -10,11 +14,25 @@ export class UsersComponent implements OnInit {
 
   @Output() checkboxState = new EventEmitter<boolean>();
   checked=true;
+  extension = true;
   connectedUsers = ['aaa', 'bbb', 'ccc', 'dddd'];
-  constructor() { }
+  currentUser: userDetail;
+  constructor(private accountService: UserService) { }
 
   ngOnInit() {
-   
+   this.getUser();
+  }
+  getUser(){
+    const interv = interval(100);
+    
+    interv.subscribe(n => {
+    this.currentUser = this.accountService.getUser();
+    } );
+  }
+  showExtension(val)
+  {
+    console.log(val);
+    this.extension = val;
   }
   change()
   {

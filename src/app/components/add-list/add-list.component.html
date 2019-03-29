@@ -1,33 +1,57 @@
 <div class="container">
     <div class="opt">
-      <span>Select a category</span>
-        <select [(ngModel)]="newList.category">
-          <option value="food">Food List</option>
-          <option value="pc">PC List</option>
-          <option value="gift">Gift List</option>
-        
-        </select>
-      </div>
-      
-      <div class="opt">
-      <span>Name the list:</span>
-        <input type="text"  [(ngModel)]="newList.name">
        
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select [(ngModel)]="newList.category">
+                <mat-option value="food">Food List</mat-option>
+                <mat-option value="pc">PC List</mat-option>
+                <mat-option value="gift">Gift List</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+      </div>
+      <div class="opt">
+      
+        <mat-form-field appearance="outline">
+            <mat-label> Public or private list?  </mat-label>
+            <mat-select required [(ngModel)]="newList.visibility">
+              <mat-option value="public">Public list</mat-option>
+              <mat-option value="private">Private list</mat-option>
+      
+          </mat-select>
+          
+      </mat-form-field>
+    </div>
+      <div class="opt">
+      
+        <mat-form-field appearance="outline">
+            <mat-label>Name of the list </mat-label>
+           <input matInput required [(ngModel)]="newList.name" type="text" placeholder="name" class="form-control" id="name" name="name">
+          
+      </mat-form-field>
     </div> 
+    
     <div class="opt">
-        <span>Any description that can help you later?:</span>
-          <textarea [(ngModel)]="newList.description" ></textarea>
+        
+          
+          <mat-form-field class="full-width">
+              <textarea matInput [(ngModel)]="newList.description" placeholder="Any description that can help you later?:"></textarea>
+            </mat-form-field>
      </div> 
      <div class="opt items-up">
-         <span>Items:</span>
-          <input type="text" [(ngModel)]="newItem" (keyup.enter)="addItem()">
+          <mat-form-field class="itemAdd" appearance="outline">
+          <mat-label>Item </mat-label>
+           <input matInput [(ngModel)]="newItem" (keyup.enter)="addItem()" type="text" placeholder="name" class="form-control" id="name" name="name">
+          </mat-form-field>
+          
           <div class="btn addItem" (mousedown)="addItem()">Add item</div>        
         
      </div>       
      <div class="opt items-down" >
-        <div class="item" *ngFor="let item of newList.items" (click)='delete($event.target)'>{{item}}</div>
+        <div class="item" *ngFor="let item of newList.items; let i = index" (click)='delete(i)'>{{item}}</div>
     </div> 
      <div class="opt">
-     <div class="btn addlist">Add List</div>
+     <div class="btn addlist" (mousedown)="uploadList()">Add List</div>
       </div>  
 </div>

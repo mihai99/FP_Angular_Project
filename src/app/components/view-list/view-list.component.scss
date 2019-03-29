@@ -1,0 +1,92 @@
+@import "../../styles/mixin";
+.mainContent{
+    background: $secondary-color;
+    color:black;
+width: calc(50% - 40px);
+margin-left: 25%;
+margin-top: 35px;
+border-radius: 25px;
+display: flex;
+flex-direction: column;
+padding: 20px;
+align-items: center;
+.head{
+    font-size: 25px;
+    border-bottom: 2px solid;
+    width: auto;
+display: flex;
+justify-content: center;
+}
+.title{
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.description{
+    padding: 10px;
+    width: 100%;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    text-align: center;
+}
+.likes{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    align-items: center;
+    padding: 10px;
+    img{
+        margin-left:10px;
+        width:60px;
+        border-radius: 0px;
+        background: none;
+        transition: all 0.2s ease-in;
+    }
+    img:hover{
+        border-radius: 30px;
+        background:white;
+        transition: all 0.2s ease-in;
+    }
+}
+.likesSelf{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+     align-items: center;
+    padding: 10px;
+    img{
+        width:60px;
+    }
+}  
+ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    li{
+        width: 75%;
+        background:white;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 8px;
+        text-align: center;
+        border: 2px solid;
+    }
+}
+.modifyBut{
+    width:75%;
+    padding: 15px;
+    margin-top:15px;
+    border:2px solid;
+    background: white;
+    border-radius: 25px;
+    text-align: center;
+    transition: all 0.1s ease-in;
+}
+.modifyBut:hover{
+    background: grey;
+    border-radius: 10px;
+    transition: all 0.1s ease-in;
+}
+}

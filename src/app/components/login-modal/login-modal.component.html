@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div class="main">
+      <div  [ngClass]="[active == 'l' ?  'active' : 'deactive']">
+        <span>Log In</span>
+          <mat-form-field >
+              <input matInput required placeholder="username" type="text" [(ngModel)]="logginUser">                      
+          </mat-form-field>
+          <mat-form-field >
+              <input matInput required placeholder="password" type="text" [(ngModel)]="logginPass">                      
+          </mat-form-field>
+          <button class="btn" (mousedown)="log()">Log In</button>
+      </div>
+
+
+            <div [ngClass]="[active == 'r' ?  'active register' : 'deactive register']">
+                <span>Register</span>
+                
+                <mat-form-field >
+                    <input matInput required placeholder="email" type="text" [(ngModel)]="newUser.email">                      
+                </mat-form-field>
+                <mat-form-field >
+                    <input matInput required placeholder="your name" type="text" [(ngModel)]="newUser.name">                      
+                </mat-form-field>
+                <mat-form-field >
+                    <input matInput required placeholder="your username" type="text" [(ngModel)]="newUser.username">                      
+                </mat-form-field>
+                <mat-form-field >
+                    <input matInput required placeholder="password" type="text" [(ngModel)]="passwd">                      
+                </mat-form-field>
+                <mat-form-field >
+                    <input matInput required placeholder="repeat password" type="text" [(ngModel)]="confpasswd">   
+                                     
+                </mat-form-field>
+                <button class="btn" (mousedown)="reg()" >Register</button>
+            </div>
+  </div>
+  
+
+  <div class="btngroup">
+    <button class="btn" *ngIf="active=='r'" (mousedown)="active='l'">Login</button>
+    <button class="btn" *ngIf="active=='l'"  (mousedown)="active='r'">Register</button>
+  </div>
+
+
+</div>

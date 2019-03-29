@@ -9,13 +9,25 @@
 </div>
   <nav [ngClass]="[showMenu == true ?  'active' : '']">
     <ul>
-      <li [routerLink]="['']">Listele mele</li>
+      <li  [matMenuTriggerFor]="submenuList" *ngIf="loggedinUser.username != ''">Listele mele</li>
       <li [routerLink]="['']">Toate listele</li>
       <li [routerLink]="['/popular']">Liste populare</li>
       <li [routerLink]="['/latest']">Ultimele liste</li>
-      <li [routerLink]="['/add']">Adauga o lista</li>
-      <li [routerLink]="['']">Log in / Register</li>
+      <li *ngIf="loggedinUser.username != ''" [routerLink]="['/add']" >Adauga o lista</li>
+      <li (click)="openModal()"  *ngIf="loggedinUser.username == ''">Log in / Register</li>
+      <li *ngIf="loggedinUser.username != ''" [matMenuTriggerFor]="submenuAccount">{{loggedinUser.name}}</li>
     </ul>
   </nav>
  
 </div>
+<mat-menu class="sub-menu" #submenuList="matMenu">
+  <button mat-menu-item [routerLink]="['mine']">Created by me</button>
+  <button mat-menu-item [routerLink]="['mine']">Liked by me</button>
+  <button mat-menu-item [routerLink]="['mine']">Active lists</button>
+</mat-menu>
+
+<mat-menu class="sub-menu" #submenuAccount="matMenu">
+  <button mat-menu-item [routerLink]="['mine']">Modify accoount data</button>
+  <button mat-menu-item [routerLink]="['mine']">LogOut</button>
+ 
+</mat-menu>

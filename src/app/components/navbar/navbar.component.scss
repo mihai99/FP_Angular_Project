@@ -1,5 +1,18 @@
 @import "../../styles/mixin";
 
+.mat-menu-panel.sub-menu{
+
+    @include respond-to("sm")
+    {
+    max-width:none;
+    width: 100vw; 
+   
+    }
+}
+
+.notification-row{
+    width: 424px;
+}
 .navbar
 {
     display: flex;

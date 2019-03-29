@@ -1,0 +1,59 @@
+
+<div class="list-container">
+ 
+
+    
+    
+  <div class="mainContent">
+    <div class="head">
+        <mat-form-field>
+            <mat-label>List category: </mat-label>
+            <mat-select [(ngModel)]="currentList.category">
+                <mat-option value="food">Food List</mat-option>
+                <mat-option value="pc">PC List</mat-option>
+                <mat-option value="gift">Gift List</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+              <mat-label>Privacy type: </mat-label>
+              <mat-select required [(ngModel)]="currentList.visibility">
+                  <mat-option value="public">Public list</mat-option>
+                  <mat-option value="private">Private list</mat-option>
+          
+              </mat-select>
+            </mat-form-field>
+    </div>    
+    <div class="title">
+        
+      <mat-form-field appearance="outline">
+        <mat-label>Name of the list: </mat-label>
+        <input matInput required [(ngModel)]="currentList.name" type="text" placeholder="name" class="form-control" id="name" name="name">
+        </mat-form-field>
+    </div>
+    <div class="description">
+      <mat-label>Description:</mat-label>
+        <mat-form-field class="full-width">
+            <textarea matInput  cdkTextareaAutosize [(ngModel)]="currentList.description"></textarea>
+          </mat-form-field>
+    </div>
+
+    <div class="items">
+        <mat-form-field class="itemAdd" appearance="outline">
+            <mat-label>Item </mat-label>
+            <input matInput [(ngModel)]="newItem" (keyup.enter)="addItem()" type="text" placeholder="name" class="form-control" id="name" name="name">
+        </mat-form-field>        
+        <div class="btn addItem" (mousedown)="addItem()">Add item</div>   
+    </div>   
+    <div class="itemsView">
+        
+            <div class="item" *ngFor="let item of currentList.items; let i = index" (click)='delete(i)'>{{item}}</div>
+       
+    </div>
+  <div class="modifyBut" (mousedown)="uploadList()">Save modifications </div>
+</div>
+  
+  
+
+
+</div>
