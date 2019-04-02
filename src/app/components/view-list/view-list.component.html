@@ -15,7 +15,7 @@
       <ul >
           <li *ngFor="let item of currentList.items"> {{item}}</li>
       </ul>
-      <div class="modifyBut" *ngIf="currentList.owner == loggedInUser" [routerLink]="['/editList', currentList.id]">Modify List</div>
+      <div class="modifyBut" *ngIf="currentList.owner == loggedInUser.username" [routerLink]="['/editList', currentList.id]">Modify List</div>
     </div>
       
       

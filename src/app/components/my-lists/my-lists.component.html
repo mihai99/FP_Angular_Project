@@ -1,7 +1,7 @@
 
 <div class="list-container">
   <div class="list-category" *ngFor="let category of allCategories" >
-  <span *ngIf="exists[category]" >Liste pentru {{category}}</span>
+  <span *ngIf="exists[category]" >Lists for {{category}}</span>
   <ul>
     
       <li *ngFor="let list of allLists[category]" >

@@ -1,6 +1,6 @@
 
 <div class="list-container">
-  <span>Liste populare</span>
+  <span>Popular lists</span>
   <ul>
     <ng-container  *ngFor="let list of Lists" >
       <li *ngIf="list.owner == loggedInUser.username || list.visibility == 'public' ">

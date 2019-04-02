@@ -1,6 +1,6 @@
 
 <div class="list-container">
-    <span>Liste adaugate in ultimele 10 zile</span>
+    <span>Lists added in the last 10 days</span>
     <ul>
         <ng-container *ngFor="let list of Lists">
         <li  *ngIf="list.owner == loggedInUser.username || list.visibility == 'public' ">

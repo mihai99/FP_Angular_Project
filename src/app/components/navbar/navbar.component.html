@@ -10,10 +10,10 @@
   <nav [ngClass]="[showMenu == true ?  'active' : '']">
     <ul>
       <li  [matMenuTriggerFor]="submenuList" *ngIf="loggedinUser.username != ''">Listele mele</li>
-      <li [routerLink]="['']">Toate listele</li>
-      <li [routerLink]="['/popular']">Liste populare</li>
-      <li [routerLink]="['/latest']">Ultimele liste</li>
-      <li *ngIf="loggedinUser.username != ''" [routerLink]="['/add']" >Adauga o lista</li>
+      <li [routerLink]="['']">All lists</li>
+      <li [routerLink]="['/popular']">Popular lists</li>
+      <li [routerLink]="['/latest']">Last lists</li>
+      <li *ngIf="loggedinUser.username != ''" [routerLink]="['/add']" >Create a new list</li>
       <li (click)="openModal()"  *ngIf="loggedinUser.username == ''">Log in / Register</li>
       <li *ngIf="loggedinUser.username != ''" [matMenuTriggerFor]="submenuAccount">{{loggedinUser.name}}</li>
     </ul>

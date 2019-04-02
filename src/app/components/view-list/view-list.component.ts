@@ -27,6 +27,7 @@ export class ViewListComponent implements OnInit {
       this.listId = params.id;
       this.getCurrentList();
     })
+    
   }
   getUser(){
     const interv = interval(100);
