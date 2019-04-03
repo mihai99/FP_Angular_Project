@@ -6,5 +6,7 @@ export interface userDetail {
     password: String,
     username: String,
     likedLists: Array<String>,
-    activeLists: Array<String>
+    activeLists: Array<String>,
+    id: String,
+    connected: Boolean
 }

@@ -61,7 +61,7 @@ export class EditListComponent implements OnInit {
   }
   uploadList()
   {
-    this.listService.modifyList(this.currentList).subscribe(data => {
+    this.listService.modifyList(this.currentList, 0).subscribe(data => {
       console.log(data); 
       alert("list modified");
       this.router.navigate(['viewFullList', this.currentList.id]);

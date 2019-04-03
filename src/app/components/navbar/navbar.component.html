@@ -22,12 +22,12 @@
 </div>
 <mat-menu class="sub-menu" #submenuList="matMenu">
   <button mat-menu-item [routerLink]="['mine']">Created by me</button>
-  <button mat-menu-item [routerLink]="['mine']">Liked by me</button>
-  <button mat-menu-item [routerLink]="['mine']">Active lists</button>
+  <button mat-menu-item [routerLink]="['liked']">Liked by me</button>
+  <button mat-menu-item [routerLink]="['active']">Active lists</button>
 </mat-menu>
 
 <mat-menu class="sub-menu" #submenuAccount="matMenu">
-  <button mat-menu-item [routerLink]="['mine']">Modify accoount data</button>
-  <button mat-menu-item [routerLink]="['mine']">LogOut</button>
+  <button mat-menu-item [routerLink]="['']">Modify accoount data</button>
+  <button mat-menu-item [routerLink]="['']" (mousedown)="logOut()">LogOut</button>
  
 </mat-menu>

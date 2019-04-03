@@ -57,7 +57,7 @@ export class LastListsComponent implements OnInit {
       { 
           currentList[0].likes++;
           console.log(currentList);
-          this.listsService.modifyList(currentList[0]).subscribe(data => { this.getLists(); })
+          this.listsService.modifyList(currentList[0], 1).subscribe(data => { this.getLists(); })
       }
     }
 }

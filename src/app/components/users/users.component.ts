@@ -15,18 +15,17 @@ export class UsersComponent implements OnInit {
   @Output() checkboxState = new EventEmitter<boolean>();
   checked=true;
   extension = true;
-  connectedUsers = ['aaa', 'bbb', 'ccc', 'dddd'];
-  currentUser: userDetail;
+  connectedUsers: Array<userDetail> = [];
+  currentUser: userDetail = {name: "",  email: "",  password: "",  username: "",  likedLists: ['def'],  activeLists: ['def'], connected: false, id: ''};
   constructor(private accountService: UserService) { }
 
   ngOnInit() {
    this.getUser();
   }
   getUser(){
-    const interv = interval(100);
-    
-    interv.subscribe(n => {
+    interval(1000).subscribe(n => {
     this.currentUser = this.accountService.getUser();
+    this.getLoggedInUsers();
     } );
   }
   showExtension(val)
@@ -34,6 +33,16 @@ export class UsersComponent implements OnInit {
     console.log(val);
     this.extension = val;
   }
+
+  getLoggedInUsers()
+  {
+      this.accountService.getAllUsers().subscribe(data => 
+        {
+          this.connectedUsers = Object.values(data);
+          this.connectedUsers = this.connectedUsers.filter(usr => (usr.connected == true && this.currentUser.username != usr.username));
+        })
+  }
+
   change()
   {
     if(this.checked==true)

@@ -17,7 +17,9 @@ export class LoginModalComponent implements OnInit {
     password: "",
     username: "",
     likedLists: ['def'],
-    activeLists: ['def']
+    activeLists: ['def'],
+    connected: false,
+    id: ''
   };
   passwd='';
   confpasswd='';
@@ -29,25 +31,29 @@ export class LoginModalComponent implements OnInit {
   ngOnInit() {
 
   }
-  log()
+  logIn()
   {
     if(this.logginPass != '' && this.logginUser != '')
     {
-      this.userService.getUsers().subscribe(data =>{
-        let users = Object.values(data);
-        users = users.filter(user => user.username == this.logginUser && user.password == this.logginPass);
-        if(users.length>0)
-        { 
-             
-              this.userService.setUser(users[0]);
-              this.modal.closeAll();
-        }
-        else
-        alert("something went wrong");
-      });
+      this.userService.getAllUsers().subscribe(data =>{
+         let users = Object.values(data);
+         users = users.filter(user => user.username == this.logginUser && user.password == this.logginPass);
+          if(users.length>0)
+          {             
+            this.userService.connectUser(users[0]).subscribe( data => {
+                this.userService.setUser(users[0]);
+                alert("you have logged in");
+                this.modal.closeAll();
+              })  
+            
+          }
+          else
+              alert("something went wrong");
+       });
     }
      
   }
+  
   reg()
   {
     let ok=1;
@@ -64,12 +70,13 @@ export class LoginModalComponent implements OnInit {
     if(ok)
     {
       this.newUser.password = this.passwd;
-     
-      this.userService.registerUser(this.newUser).subscribe(data => {
-          console.log(data);
+      console.log("subscribind");
+       this.userService.registerUser(this.newUser).subscribe(data => {
+         // console.log(Object.values(data)[0]);
+          this.userService.regUserId(Object.values(data)[0]).subscribe();
           alert("you are registered");
           this.modal.closeAll();
-        });
+         }, error => console.log(error));
 
     }
   }

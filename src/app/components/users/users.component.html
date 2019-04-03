@@ -5,7 +5,7 @@
     </div> 
 <ul>
   <li class="self" *ngIf="currentUser.name != ''">{{currentUser.name}}</li>
-  <li *ngFor="let user of connectedUsers">{{user}}</li>
+  <li *ngFor="let user of connectedUsers">{{user.username}}</li>
 
 
 </ul>

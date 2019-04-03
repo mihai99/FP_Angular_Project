@@ -18,6 +18,9 @@ import { MyListsComponent } from './components/my-lists/my-lists.component';
 import { ViewListComponent } from './components/view-list/view-list.component';
 import { EditListComponent } from './components/edit-list/edit-list.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
+import { LikedListsComponent } from './components/liked-lists/liked-lists.component';
+import { LoggedInGuardGuard } from './guards/logged-in-guard.guard';
+import { ActiveListsComponent } from './components/active-lists/active-lists.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,9 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
     MyListsComponent,
     ViewListComponent,
     EditListComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    LikedListsComponent,
+    ActiveListsComponent
     
      
   ],
@@ -48,7 +53,7 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
     
   ],
   entryComponents: [LoginModalComponent],
-  providers: [],
+  providers: [LoggedInGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -58,8 +58,9 @@ export class ViewListComponent implements OnInit {
       if(currentList[0].owner != this.loggedInUser.username)
       { 
           currentList[0].likes++;
-          console.log(currentList);
-          this.listService.modifyList(currentList[0]).subscribe(data => { this.ngOnInit(); })
+          
+         // console.log(currentList);
+          this.listService.modifyList(currentList[0], 1).subscribe(data => { this.ngOnInit(); })
       }
   
      ;
