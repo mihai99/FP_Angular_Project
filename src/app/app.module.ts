@@ -12,15 +12,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { PopularListsComponent } from './components/popular-lists/popular-lists.component';
 import { LastListsComponent } from './components/last-lists/last-lists.component';
-import { MatIconModule, MatMenuModule,  MatInputModule, MatAutocomplete, MatAutocompleteModule, MatSelectModule, MatDialogModule} from '@angular/material';
+import { MatIconModule, MatCheckboxModule,  MatMenuModule,  MatInputModule, MatAutocomplete, MatAutocompleteModule, MatSelectModule, MatDialogModule} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { MyListsComponent } from './components/my-lists/my-lists.component';
 import { ViewListComponent } from './components/view-list/view-list.component';
 import { EditListComponent } from './components/edit-list/edit-list.component';
 import { LoginModalComponent } from './components/login-modal/login-modal.component';
-import { LikedListsComponent } from './components/liked-lists/liked-lists.component';
+
 import { LoggedInGuardGuard } from './guards/logged-in-guard.guard';
 import { ActiveListsComponent } from './components/active-lists/active-lists.component';
+import { InUseListComponent } from './components/in-use-list/in-use-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +36,10 @@ import { ActiveListsComponent } from './components/active-lists/active-lists.com
     ViewListComponent,
     EditListComponent,
     LoginModalComponent,
-    LikedListsComponent,
-    ActiveListsComponent
+ 
+    ActiveListsComponent,
+ 
+    InUseListComponent
     
      
   ],
@@ -49,7 +52,8 @@ import { ActiveListsComponent } from './components/active-lists/active-lists.com
     MatSelectModule,
     HttpClientModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
     
   ],
   entryComponents: [LoginModalComponent],

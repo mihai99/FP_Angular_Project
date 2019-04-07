@@ -38,6 +38,15 @@ export class UserService {
       let postObj = {listId: list.id};
       return this.http.post('https://fiipracticangular.firebaseio.com/lists/users/' + user.id + '/likedLists.json', postObj);
   } 
+  addActiveList(user:userDetail, list:listDetail)
+  {
+      let postObj = {listId: list.id, listObjectsCount: list.items.length, listActiveObjects: []};
+      return this.http.post('https://fiipracticangular.firebaseio.com/lists/users/' + user.id + '/activeLists.json', postObj);
+  } 
+  delActiveList(user:userDetail, listid: string)
+  {
+    return this.http.delete("https://fiipracticangular.firebaseio.com/lists/users/"+user.id+"/activeLists/"+listid+".json");
+  } 
 
   regUserId(idd)
   {

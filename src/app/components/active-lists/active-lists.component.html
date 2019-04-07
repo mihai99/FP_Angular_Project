@@ -10,7 +10,7 @@
                     <img src="../../../assets/like.png" >
                      Likes: {{list.likes}} 
                 </div>
-                <img class="cartImg" src="../../../assets/cart.png">
+                <img class="cartImg cartImgActive" src="../../../assets/cart.png">
               </div>
           
         <div class="mainContent">
@@ -25,7 +25,7 @@
             <li *ngFor="let item of list.items | slice:0:3">{{item}} </li>
         </ul>
         </div>
-        <div class="btn" [routerLink]="['/viewFullList', list.id]">view list</div>
+        <div class="btn" [routerLink]="['/isUse', list.id]" routerLinkActive="active">view list</div>
       </li>
     </ng-container>
     </ul>

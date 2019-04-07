@@ -3,6 +3,7 @@ import { userDetail } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material';
 import { isFulfilled } from 'q';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-modal',
@@ -26,7 +27,8 @@ export class LoginModalComponent implements OnInit {
   logginUser='';
   logginPass='';
   constructor(private userService: UserService,
-              private modal: MatDialog) { }
+              private modal: MatDialog,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -43,6 +45,7 @@ export class LoginModalComponent implements OnInit {
             this.userService.connectUser(users[0]).subscribe( data => {
                 this.userService.setUser(users[0]);
                 alert("you have logged in");
+                this.router.navigate(['/mine']);
                 this.modal.closeAll();
               })  
             

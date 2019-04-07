@@ -54,15 +54,14 @@ export class ViewListComponent implements OnInit {
   addLike(id)
     {
      
-      let currentList = this.allLists.filter(itemList => itemList.id == id); 
-      if(currentList[0].owner != this.loggedInUser.username)
-      { 
-          currentList[0].likes++;
-          
-         // console.log(currentList);
-          this.listService.modifyList(currentList[0], 1).subscribe(data => { this.ngOnInit(); })
-      }
-  
+     
+      for(let i = 0;i<this.allLists.length;i++)
+        if(this.allLists[i].id==id && this.allLists[0].owner != this.loggedInUser.username)
+        {
+          this.allLists[i].likes++;
+          this.listService.likeList(this.allLists[i]);
+        }
+
      ;
     }
 

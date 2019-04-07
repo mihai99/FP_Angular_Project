@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LikedListsComponent } from './liked-lists.component';
+import { InUseListComponent } from './in-use-list.component';
 
-describe('LikedListsComponent', () => {
-  let component: LikedListsComponent;
-  let fixture: ComponentFixture<LikedListsComponent>;
+describe('InUseListComponent', () => {
+  let component: InUseListComponent;
+  let fixture: ComponentFixture<InUseListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LikedListsComponent ]
+      declarations: [ InUseListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LikedListsComponent);
+    fixture = TestBed.createComponent(InUseListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

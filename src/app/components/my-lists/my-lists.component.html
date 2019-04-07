@@ -10,7 +10,7 @@
                   <img src="../../../assets/like.png" >
                    Likes: {{list.likes}} 
               </div>
-              <img class="cartImg" src="../../../assets/cart.png">
+              <img  (mousedown)="addDelActive(list.id)" [ngClass]="[list.active == true ?  'cartImg cartImgActive' : 'cartImg']" src="../../../assets/cart.png">
             </div>
         
       <div class="mainContent">

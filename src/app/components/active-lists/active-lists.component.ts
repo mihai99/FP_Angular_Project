@@ -33,9 +33,10 @@ export class ActiveListsComponent implements OnInit {
   }
   getLists(){
     
-    this.listService.getLikedListsIds(this.accountService.getUser()).subscribe(data => {
+    this.listService.getActiveListsIds(this.accountService.getUser()).subscribe(data => {
  
       let allListsIds = Object.values(data);
+      console.log(allListsIds);
       for(let i=0;i<this.allCategories.length;i++)
         this.allLists[this.allCategories[i]] = new Array<listDetail>();
       for(let i=0; i<allListsIds.length; i++)

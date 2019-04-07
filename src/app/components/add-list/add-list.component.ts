@@ -46,6 +46,8 @@ newItem: '';
     this.listService.uploadList(upList).subscribe(data => {
       if(data){
         alert("lista adaugata cu succes")
+        console.log(data);
+        this.listService.regListId(Object.values(data)[0]).subscribe();
         this.newList = {id: '',description: '',name: '',category: 'food',items: [],likes: 0,owner: this.userService.getUser().username, visibility: '', dateAdded: new Date()}
       }
     });

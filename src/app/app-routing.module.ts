@@ -8,9 +8,10 @@ import { LastListsComponent } from './components/last-lists/last-lists.component
 import { MyListsComponent } from './components/my-lists/my-lists.component';
 import { ViewListComponent } from './components/view-list/view-list.component';
 import { EditListComponent } from './components/edit-list/edit-list.component';
-import { LikedListsComponent } from './components/liked-lists/liked-lists.component';
+
 import { LoggedInGuardGuard } from './guards/logged-in-guard.guard';
 import { ActiveListsComponent } from './components/active-lists/active-lists.component';
+import { InUseListComponent } from './components/in-use-list/in-use-list.component';
 
 const routes: Routes = [
 {path: '', component: ListsComponent},
@@ -19,8 +20,8 @@ const routes: Routes = [
 {path: 'latest', component: LastListsComponent},
 {path: 'mine', component: MyListsComponent, canActivate: [LoggedInGuardGuard]},
 {path: 'viewFullList/:id', component: ViewListComponent},
-{path: 'editList/:id', component: EditListComponent},
-{path: 'liked', component: LikedListsComponent, canActivate: [LoggedInGuardGuard]},
+{path: 'editList/:id', component: EditListComponent, canActivate: [LoggedInGuardGuard]},
+{path: 'isUse/:id', component: InUseListComponent, canActivate: [LoggedInGuardGuard]},
 {path: 'active', component: ActiveListsComponent, canActivate: [LoggedInGuardGuard]}
 ];
 
