@@ -1,9 +1,13 @@
 
 <div class="list-container">
+    <span>All lists</span>
+    <mat-form-field >
+        <input matInput  placeholder="serach" type="text" [(ngModel)]="ser">                      
+    </mat-form-field>
   <div class="list-category" *ngFor="let category of allCategories" >
   <span *ngIf="exists[category]" >Lists for {{category}}</span>
   <ul>
-      <ng-container *ngFor="let list of allLists[category]">
+      <ng-container *ngFor="let list of allLists[category] | search:ser ">
       <li  *ngIf="list.owner == loggedInUser.username || list.visibility == 'public' " >
           <div class="header">
               <div  [ngClass]="[list.owner == loggedInUser.username ?  'likesSelf' : 'likes']">

@@ -1,5 +1,35 @@
 @import "../../styles/mixin";
 @import "../../styles/listsStyle.scss";
 .list-category{
-    margin-top: 30px;
+    margin-top: 20px;
+    
+}
+span
+{
+    margin-bottom:0px !important;
+}
+::ng-deep mat-form-field
+{
+    margin-left:40px;
+    width:30%;
+    @include respond-to("md")
+    {
+        width: 50%;
+        
+    }
+    @include respond-to("sm")
+    {
+        width:70%;
+        margin-left:15%;
+    }
+}
+.header
+{
+    flex-wrap:wrap;
+}
+::ng-deep mat-progress-bar
+{
+    height: 10px;
+  
+ 
 }

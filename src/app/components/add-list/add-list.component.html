@@ -1,16 +1,22 @@
 <div class="container">
-    <div class="opt">
+    <div class="opt" style="flex-direction: column">
        
         <mat-form-field>
             <mat-label>Category</mat-label>
             <mat-select [(ngModel)]="newList.category">
-                <mat-option value="food">Food List</mat-option>
-                <mat-option value="pc">PC List</mat-option>
-                <mat-option value="gift">Gift List</mat-option>
+               <ng-container *ngFor="let category of allCategories">
+                  <mat-option [value]="category">{{category}} List</mat-option>
+               </ng-container>              
+                
+                <mat-option value="new">New Category</mat-option>
             </mat-select>
           </mat-form-field>
-          
+          <mat-form-field appearance="outline" *ngIf="newList.category == 'new'">
+              <mat-label>New category name </mat-label>              
+              <input matInput required [(ngModel)]="newCategory" type="text" placeholder="category name">
+            </mat-form-field>
       </div>
+      
       <div class="opt">
       
         <mat-form-field appearance="outline">

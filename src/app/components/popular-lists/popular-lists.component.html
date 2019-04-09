@@ -1,8 +1,12 @@
 
 <div class="list-container">
-  <span>Popular lists</span>
+    <span>Popular lists</span>
+    <mat-form-field >
+        <input matInput  placeholder="serach" type="text" [(ngModel)]="ser">                      
+    </mat-form-field>
+
   <ul>
-    <ng-container  *ngFor="let list of Lists" >
+    <ng-container  *ngFor="let list of Lists | search:ser" >
       <li *ngIf="list.owner == loggedInUser.username || list.visibility == 'public' ">
           <div class="header">
               <div [ngClass]="[list.owner == loggedInUser.username ?  'likesSelf' : 'likes']">

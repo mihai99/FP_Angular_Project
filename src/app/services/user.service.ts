@@ -14,6 +14,11 @@ export class UserService {
   constructor(private http: HttpClient, 
             private router: Router) { }
 
+  modifyUser(user)
+  {
+    let userUpdate = {username: user.username, password: user.password, name: user.name, email:user.email}
+    return this.http.patch('https://fiipracticangular.firebaseio.com/lists/users/' + user.id+'.json', userUpdate);
+  }
   setUser(user)
   {
     this.loggedInUser = user;
@@ -40,7 +45,7 @@ export class UserService {
   } 
   addActiveList(user:userDetail, list:listDetail)
   {
-      let postObj = {listId: list.id, listObjectsCount: list.items.length, listActiveObjects: []};
+      let postObj = {listId: list.id, listObjectsCount: list.items.length, listActiveObjects: ["-1"]};
       return this.http.post('https://fiipracticangular.firebaseio.com/lists/users/' + user.id + '/activeLists.json', postObj);
   } 
   delActiveList(user:userDetail, listid: string)

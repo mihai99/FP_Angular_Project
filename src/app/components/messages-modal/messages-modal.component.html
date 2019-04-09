@@ -1,0 +1,21 @@
+<div class="wrapper">
+    
+    <div class="title">
+        {{userWith.username}}
+    </div>
+    <div class="line"></div>
+    <div class="messages">
+        <div class="msgwrap"  *ngFor = "let mesage of messages">
+                <div [ngClass]="mesage.sender == user.username? 'message mine' : 'message'">{{mesage.mess}}</div>
+        </div>        
+        
+    </div>
+
+    <div class="line"></div>
+    <div class="messagebox">
+        <mat-form-field >
+            <input matInput [(ngModel)] = "text" >
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="send()">Send</button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+@import "../../styles/mixin";
+.wrapper
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+    .header{
+        padding: 20px;
+        text-align: center;
+    }
+    .btn
+    {
+        height:50px;
+    }
+    mat-form-field {
+        margin: 0px;
+        width: calc(100% - 40px);
+        padding: 0px 20px;
+        text-align: center;
+    }
+   
+}

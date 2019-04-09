@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListsService } from 'src/app/services/lists.service';
 import { listDetail } from 'src/app/interfaces/listInterface';
+import { CategoryService } from 'src/app/services/category.service';
 
 
 
@@ -11,17 +12,28 @@ import { listDetail } from 'src/app/interfaces/listInterface';
   styleUrls: ['./edit-list.component.scss']
 })
 export class EditListComponent implements OnInit {
+  allCategories = ['food', 'pc', 'gift'];
   listId: any;
   allLists: any;
   currentList: listDetail;
   newItem: String;
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private listService: ListsService
+              private listService: ListsService,
+            private categoryService: CategoryService
               ) { }
-
+  getCategory()
+ {
+    this.categoryService.getCategory().subscribe(data =>
+      {
+        let cat = Object.values(data);
+        for(let i=0;i<cat.length;i++)
+          this.allCategories[i] = cat[i].name;
+        console.log(this.allCategories);
+      })
+ }
   ngOnInit() {
-    
+    this.getCategory();
     this.route.params.subscribe(params => {
       console.log(params);
       this.listId = params.id;

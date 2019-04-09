@@ -93,10 +93,7 @@ export class InUseListComponent implements OnInit {
         this.listService.deleteItemCheckedInList(this.iduAlaCareMoEnervat3ore, no);
 
       }
-      // else
-
-      //   this.checkedItems[no]=true;
-      //   console.log("dsad", this.checkedItems);
+     
     
   } 
   addLike(id)

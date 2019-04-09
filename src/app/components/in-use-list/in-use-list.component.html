@@ -5,7 +5,7 @@
     
     
   <div class="mainContent">
-    <div class="head">{{currentList.owner}}'s list for {{currentList.category}}<div *ngIf="currentList.owner==loggedInUser">, {{currentList.visibility}} list</div> </div>    
+    <div class="head">{{currentList.owner}}'s list for {{currentList.category}}<div *ngIf="currentList.owner==loggedInUser.username">, {{currentList.visibility}} list</div> </div>    
     <div class="title">{{currentList.name}}</div>
     <div class="description">Description: {{currentList.description}}</div>
      <div [ngClass]="[currentList.owner == loggedInUser.username ?  'likesSelf' : 'likes']">

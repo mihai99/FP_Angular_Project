@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="header">Hi, dadd, what do you want to change?</div>
+  <mat-form-field >
+      <input matInput [(ngModel)] = "currentUser.username" placeholder="username">
+  </mat-form-field>
+  <mat-form-field >
+      <input matInput [(ngModel)] = "currentUser.name" placeholder="name">
+  </mat-form-field>
+  <mat-form-field >
+      <input matInput [(ngModel)] = "currentUser.email" placeholder="email">
+  </mat-form-field>
+  <mat-form-field >
+      <input matInput [(ngModel)] = "currentUser.password" placeholder="password">
+  </mat-form-field>
+  <button class="btn" (mousedown)="updateUser()" >Modify</button>
+</div>

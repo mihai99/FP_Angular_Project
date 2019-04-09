@@ -1,8 +1,15 @@
 
 <div class="list-container">
-    <span>Lists added in the last 10 days</span>
+   
+    
+    <span>Lists added in the last 10 days 
+        
+     </span>
+     <mat-form-field >
+        <input matInput  placeholder="serach" type="text" [(ngModel)]="ser">                      
+    </mat-form-field>
     <ul>
-        <ng-container *ngFor="let list of Lists">
+        <ng-container *ngFor="let list of Lists | search:ser ">
         <li  *ngIf="list.owner == loggedInUser.username || list.visibility == 'public' ">
             <div class="header">
                 <div [ngClass]="[list.owner == loggedInUser.username ?  'likesSelf' : 'likes']">
@@ -13,7 +20,7 @@
               </div>
            
         <div class="mainContent">
-          <div class="category">Category: {{list.category}}</div>
+          <div class="category">Category: {{list.category }}</div>
           <div class="title">{{list.name}}</div>
           <div class="description">{{list.description.slice(0, 500)+(list.description.length>500?'...':'')}}</div>
         

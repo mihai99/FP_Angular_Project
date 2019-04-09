@@ -69,7 +69,7 @@ export class ListsService {
     
   }
 
-  deleteActivateList(list)
+  deleteActivateList(list) 
   {
  
    
@@ -81,7 +81,7 @@ export class ListsService {
         {
           this.userService.delActiveList(this.userService.getUser(), allKeys[i]).subscribe();
         }
-        
+       
      })
     
        

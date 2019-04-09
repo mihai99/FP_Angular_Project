@@ -26,14 +26,28 @@
     ul{
        
         li{
+            display: flex;
+            justify-content: space-between;
             background: $main-color;
             padding: 20px;
             color: $text-color;
             margin-top: 15px;
             font-family: 'Playfair Display', serif;
+            
+            .newMessages{
+                display: flex;
+
+                width: 20%;
+                
+                flex-direction: row-reverse;
+            }
+            
         }
         .self{
           margin-top: 0px;
+        }
+        .dc{
+            background: dimgray;
         }
     };
 }

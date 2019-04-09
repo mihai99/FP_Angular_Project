@@ -1,18 +1,24 @@
 
 <div class="list-container">
+    <span>Lists I currently use</span>
+    <mat-form-field >
+        <input matInput  placeholder="serach" type="text" [(ngModel)]="ser">                      
+    </mat-form-field>
     <div class="list-category" *ngFor="let category of allCategories" >
     <span *ngIf="exists[category]" >Lists for {{category}}</span>
     <ul>
-      <ng-container *ngFor="let list of allLists[category]" >
+      <ng-container *ngFor="let list of allLists[category] | search:ser" >
         <li >
             <div class="header">
+             
                 <div class="likesSelf">
                     <img src="../../../assets/like.png" >
                      Likes: {{list.likes}} 
                 </div>
-                <img class="cartImg cartImgActive" src="../../../assets/cart.png">
+                <img class="cartImg cartImgActive" (click)="delActive(list)" src="../../../assets/cart.png">
+                <mat-progress-bar color="primary" mode="determinate"  [value]="list.progres">   </mat-progress-bar>
               </div>
-          
+            
         <div class="mainContent">
           <div class="title">{{list.name}}</div>
           <div class="description">{{list.description.slice(0, 500)+(list.description.length>500?'...':'')}}</div>

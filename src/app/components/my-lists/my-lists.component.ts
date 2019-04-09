@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 import { isEmbeddedView } from '@angular/core/src/view/util';
 import { userDetail } from 'src/app/interfaces/user';
 import { interval } from 'rxjs';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-my-lists',
@@ -12,20 +13,33 @@ import { interval } from 'rxjs';
   styleUrls: ['./my-lists.component.scss']
 })
 export class MyListsComponent implements OnInit {
-
+  ser: String = "";
   allCategories = ['food', 'pc', 'gift'];
   allLists = new Array<String>();
   exists = new Array<Boolean>();
   listsUF: any = new Array<listDetailActive>();
   loggedInUser: userDetail;
   constructor(private listService: ListsService, 
-              private accountService: UserService
+              private accountService: UserService,
+              private categoryService: CategoryService
               ) { }
 
   ngOnInit() {
   this.getLists();
   this.getUser(); 
+  this.getCategory();
   }
+
+ getCategory()
+ {
+    this.categoryService.getCategory().subscribe(data =>
+      {
+        let cat = Object.values(data);
+        for(let i=0;i<cat.length;i++)
+          this.allCategories[i] = cat[i].name;
+        console.log(this.allCategories);
+      })
+ }
   getUser(){
     const interv = interval(100);
     

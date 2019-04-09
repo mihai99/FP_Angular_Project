@@ -11,7 +11,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./last-lists.component.scss']
 })
 export class LastListsComponent implements OnInit {
-
+  ser: String = "";
   Lists:Array<listDetailActive>;
   listsUF: any = new Array<listDetailActive>();
   loggedInUser: userDetail;
@@ -21,7 +21,7 @@ export class LastListsComponent implements OnInit {
 
   ngOnInit() {
   this.getLists();
- this.getUser();
+  this.getUser();
   }
   getUser(){
     const interv = interval(100);

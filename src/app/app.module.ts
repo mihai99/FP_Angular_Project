@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { PopularListsComponent } from './components/popular-lists/popular-lists.component';
 import { LastListsComponent } from './components/last-lists/last-lists.component';
-import { MatIconModule, MatCheckboxModule,  MatMenuModule,  MatInputModule, MatAutocomplete, MatAutocompleteModule, MatSelectModule, MatDialogModule} from '@angular/material';
+import { MatIconModule, MatCheckboxModule,  MatMenuModule,  MatInputModule, MatAutocomplete, MatAutocompleteModule, MatSelectModule, MatDialogModule, MatProgressBarModule, MatButtonModule} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { MyListsComponent } from './components/my-lists/my-lists.component';
 import { ViewListComponent } from './components/view-list/view-list.component';
@@ -22,6 +22,12 @@ import { LoginModalComponent } from './components/login-modal/login-modal.compon
 import { LoggedInGuardGuard } from './guards/logged-in-guard.guard';
 import { ActiveListsComponent } from './components/active-lists/active-lists.component';
 import { InUseListComponent } from './components/in-use-list/in-use-list.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { MessagesModalComponent } from './components/messages-modal/messages-modal.component';
+import { ModifyAccountComponent } from './components/modify-account/modify-account.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,11 +41,11 @@ import { InUseListComponent } from './components/in-use-list/in-use-list.compone
     MyListsComponent,
     ViewListComponent,
     EditListComponent,
-    LoginModalComponent,
- 
-    ActiveListsComponent,
- 
-    InUseListComponent
+    LoginModalComponent, 
+    ActiveListsComponent, 
+    InUseListComponent, 
+    SearchPipe, 
+    MessagesModalComponent, ModifyAccountComponent
     
      
   ],
@@ -53,10 +59,12 @@ import { InUseListComponent } from './components/in-use-list/in-use-list.compone
     HttpClientModule,
     MatMenuModule,
     MatDialogModule,
-    MatCheckboxModule
-    
+    MatCheckboxModule,
+    MatProgressBarModule,
+    MatButtonModule
   ],
-  entryComponents: [LoginModalComponent],
+
+  entryComponents: [LoginModalComponent, MessagesModalComponent, ModifyAccountComponent],
   providers: [LoggedInGuardGuard],
   bootstrap: [AppComponent]
 })

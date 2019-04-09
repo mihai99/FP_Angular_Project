@@ -5,8 +5,26 @@
     </div> 
 <ul>
   <li class="self" *ngIf="currentUser.name != ''">{{currentUser.name}}</li>
-  <li *ngFor="let user of connectedUsers">{{user.username}}</li>
+  <ng-container *ngFor="let user of allUsers; let i = index;">
 
+   <li *ngIf="user.connected==true" (click)=" openDialog(user)">{{user.name}} 
+        <div class="newMessages" *ngIf="unseen[i] &&  unseen[i]!=0 && currentUser.username != ''" >
+          <i class="material-icons">chat_bubble_outline</i>
+          {{ unseen[i] }}
+          </div>
+
+    </li>
+
+
+    <li *ngIf="user.connected==false" class="dc" (click)=" openDialog(user)">{{user.name}} 
+        <div class="newMessages" *ngIf="unseen[i] && unseen[i]!=0 && currentUser.username != ''">
+          <i class="material-icons">chat_bubble_outline</i>
+          {{ unseen[i] }}
+        </div>
+    </li>
+
+  </ng-container>
+    
 
 </ul>
 </div>

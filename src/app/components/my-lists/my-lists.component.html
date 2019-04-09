@@ -1,10 +1,14 @@
 
 <div class="list-container">
+    <span>Lists created by me</span>
+    <mat-form-field >
+        <input matInput  placeholder="serach" type="text" [(ngModel)]="ser">                      
+    </mat-form-field>
   <div class="list-category" *ngFor="let category of allCategories" >
   <span *ngIf="exists[category]" >Lists for {{category}}</span>
   <ul>
     
-      <li *ngFor="let list of allLists[category]" >
+      <li *ngFor="let list of allLists[category] | search:ser" >
           <div class="header">
               <div class="likesSelf">
                   <img src="../../../assets/like.png" >

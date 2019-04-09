@@ -26,7 +26,7 @@
 </mat-menu>
 
 <mat-menu class="sub-menu" #submenuAccount="matMenu">
-  <button mat-menu-item [routerLink]="['']">Modify accoount data</button>
+  <button mat-menu-item [routerLink]="['']" (mousedown)="modifyAcc()">Modify accoount data</button>
   <button mat-menu-item [routerLink]="['']" (mousedown)="logOut()">LogOut</button>
  
 </mat-menu>

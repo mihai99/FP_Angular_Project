@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { userDetail } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material';
-import { isFulfilled } from 'q';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -45,7 +45,7 @@ export class LoginModalComponent implements OnInit {
             this.userService.connectUser(users[0]).subscribe( data => {
                 this.userService.setUser(users[0]);
                 alert("you have logged in");
-                this.router.navigate(['/mine']);
+                this.router.navigate(['/']);
                 this.modal.closeAll();
               })  
             

@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/user.service';
 import { interval } from 'rxjs';
 import { userDetail } from 'src/app/interfaces/user';
 import { Router } from '@angular/router';
+import { ModifyAccountComponent } from '../modify-account/modify-account.component';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   showMenu=false;
-  loggedinUser = '';
+  loggedinUser:userDetail = {name: "",  email: "",  password: "",  username: "",  likedLists: ['def'],  activeLists: ['def'], connected: false, id: ''};;
   constructor(private modal: MatDialog,
             private accountService: UserService,
             private router: Router) { }
@@ -41,6 +42,7 @@ export class NavbarComponent implements OnInit {
           let blankUser: userDetail = {name: "", email: "", password: "", username: "", likedLists: ['def'], activeLists: ['def'], connected: false, id: ''};
           this.accountService.setUser(blankUser);
           this.router.navigate(['/']);
+          
           alert("you have logged out");
       });
      
@@ -52,14 +54,15 @@ export class NavbarComponent implements OnInit {
       width:'20%',
       minWidth: '250px',
       data: {}
-    });
-   
-     modalRef.afterClosed().subscribe(result => {
-     
-     // this.animal = result;
-    });
+    }); 
   }
-
+  modifyAcc() {
+    const modalRef = this.modal.open(ModifyAccountComponent, {
+      width:'30%',
+      minWidth: '350px',
+      data: {}
+    })
+  }
   switchMenu()
   {
     

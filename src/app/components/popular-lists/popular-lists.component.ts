@@ -12,7 +12,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./popular-lists.component.scss']
 })
 export class PopularListsComponent implements OnInit {
-
+  ser: String = "";
   Lists:Array<listDetailActive>;
   listsUF: any = new Array<listDetailActive>();
   loggedInUser: userDetail;
