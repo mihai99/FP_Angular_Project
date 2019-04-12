@@ -1,3 +1,8 @@
+# Despre proiect
+
+Un centralizator pentru orice fel de liste, care pot fi atat publice, pentru a le vedea toata lumea, dar si private.
+Utilizatorii pot vorbi intre ei, am imprementat o functie de mesaje basic, in stanga sunt useri, click pe unul si apare fereastra de mesaje
+
 
 # FPproject
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
