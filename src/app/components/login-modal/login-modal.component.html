@@ -6,7 +6,7 @@
               <input matInput required placeholder="username" type="text" [(ngModel)]="logginUser">                      
           </mat-form-field>
           <mat-form-field >
-              <input matInput required placeholder="password" type="text" [(ngModel)]="logginPass">                      
+              <input matInput required placeholder="password" type="password" [(ngModel)]="logginPass">                      
           </mat-form-field>
           <button class="btn" (mousedown)="logIn()">Log In</button>
       </div>
@@ -25,10 +25,10 @@
                     <input matInput required placeholder="your username" type="text" [(ngModel)]="newUser.username">                      
                 </mat-form-field>
                 <mat-form-field >
-                    <input matInput required placeholder="password" type="text" [(ngModel)]="passwd">                      
+                    <input matInput required placeholder="password" type="password" [(ngModel)]="passwd">                      
                 </mat-form-field>
                 <mat-form-field >
-                    <input matInput required placeholder="repeat password" type="text" [(ngModel)]="confpasswd">   
+                    <input matInput required placeholder="repeat password" type="password" [(ngModel)]="confpasswd">   
                                      
                 </mat-form-field>
                 <button class="btn" (mousedown)="reg()" >Register</button>

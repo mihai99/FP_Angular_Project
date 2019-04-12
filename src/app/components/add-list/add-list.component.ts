@@ -30,7 +30,7 @@ export class AddListComponent implements OnInit {
     visibility: '',
     dateAdded: new Date()
 };
-allCategories = ['food', 'pc', 'gift'];
+allCategories = [];
 newItem: '';
 newCategory: '';
   constructor(private listService: ListsService ,
